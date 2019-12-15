@@ -1,0 +1,53 @@
+﻿<Window x:Class="TwoYearUploader.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:TwoYearUploader.UI.ViewModels"
+        xmlns:local ="clr-namespace:TwoYearUploader"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance Type=viewModels:MainWindowViewModel}"
+        Title="2 Year olds for Exeter" Height="644.156" Width="825">
+    <Window.DataContext>
+        <viewModels:MainWindowViewModel/>
+    </Window.DataContext>
+    <Grid Margin="0,0,0,19">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="71*"/>
+            <RowDefinition Height="42*"/>
+            <RowDefinition Height="456*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10">
+            <Grid Width="290">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="30*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Content="{Binding LocationOfExportFile, Mode=TwoWay}" VerticalAlignment="Center"></Label>
+                <Button Grid.Row="1" Content="Find" HorizontalAlignment="Left" VerticalAlignment="Center" Width="75" Command="{Binding FindCommand}"/>
+            </Grid>
+            <Label Content="GP Code" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,13" Width="91" Text="{Binding GPCode, Mode=TwoWay}" />
+            <Label Content="Data Source" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,13" Width="91" Text="{Binding DataSource, Mode=TwoWay}"/>
+            <Label Content="Quarter Date" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,13" Width="91" Text="{Binding ListDate, Mode=TwoWay}"/>
+        </StackPanel>
+        <Button Grid.Row="1" Name="ButtonExport" Content="Export Exeter File to Desktop" Width="200" Height="30" Command="{Binding ExportCommand}" IsEnabled="{Binding EnableButton}"/>
+        <StackPanel Grid.Row="2" Margin="10">
+            <TextBlock FontSize="15" FontWeight="Bold">Follow these steps to ensure the export is succeessful.</TextBlock>
+            <TextBlock FontSize="15">
+            1. The base searches in EMIS are located below. You might need to copy to edit it but do not change the export fields <LineBreak/> EMIS Searches->Cytology and Immunisations->Target Audits->Audits/Reports:2 year old immunisations <LineBreak/> 2. You are responsible to define the date for the quarter in EMIS <LineBreak/> 3. Run the report and export it as a csv to the desktop. Ensure you use the following paramaters or it won't work
+            </TextBlock>
+            <Image x:Name="image" Height="232" HorizontalAlignment="Center" Margin="20">
+                <Image.Source>
+                    <BitmapImage UriSource="/TwoYearUploader;component/images/Capture.PNG"/>
+                </Image.Source>
+            </Image>
+            <TextBlock FontSize="15" Height="96">4. Type in your GP Code, Datasource (normally this is LNP for our area) and Quarter Date in DD.MM.YYY Format<LineBreak/>5. Click on the Find Button to locate the csv file from EMIS<LineBreak/>6. Click on Export Exeter File to Desktop and after a moment you find the file you need to upload on the desktop<LineBreak/>7. If you need more information about how to upload to Exeter click <Hyperlink NavigateUri="https://nww.openexeter.nhs.uk/nhsia/ChIms/help/ChImsCSVHelp.jsp" RequestNavigate="Hyperlink_OnRequestNavigate">here</Hyperlink></TextBlock>
+        </StackPanel>
+    </Grid>
+
+
+
+</Window>

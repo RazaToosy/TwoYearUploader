@@ -1,7 +1,18 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TwoYearUploader.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="GPCode" Type="System.String" Scope="User">
+      <Value Profile="(Default)">TOORT</Value>
+    </Setting>
+    <Setting Name="DataSource" Type="System.String" Scope="User">
+      <Value Profile="(Default)">LNP</Value>
+    </Setting>
+    <Setting Name="LocationOfEmisFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Click on Find to Locate File to convert</Value>
+    </Setting>
+    <Setting Name="ListDate" Type="System.String" Scope="User">
+      <Value Profile="(Default)">DD.MM.YYYY</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>
